@@ -9,8 +9,6 @@
         <NuxtLink class="hover:text-gray-300 hover:underline" to="/meals"> Meals </NuxtLink>
         <span class="hidden xs:block">|</span>
         <NuxtLink class="hover:text-gray-300 hover:underline" to="/dashboard"> Dashboard </NuxtLink>
-        <span class="hidden xs:block">|</span>
-        <NuxtLink class="hover:text-gray-300 hover:underline" to="/forbidden"> Forbidden </NuxtLink>
       </div>
     </div>
   </div>

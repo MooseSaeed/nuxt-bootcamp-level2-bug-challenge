@@ -12,4 +12,16 @@ export default defineNuxtConfig({
       },
     },
   },
+  app: {
+    pageTransition: { name: "blur", mode: "out-in" },
+    head: {
+      title: "Tasty Meals",
+      meta: [
+        {
+          name: "description",
+          content: "A collection of the best food in the world.",
+        },
+      ],
+    },
+  },
 });

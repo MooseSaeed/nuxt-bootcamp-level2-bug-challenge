@@ -6,7 +6,7 @@ defineProps<{
 }>();
 
 defineEmits<{
-  mealClicked: [id: number];
+  clickedMeal: [id: number];
 }>();
 </script>
 
@@ -27,7 +27,7 @@ defineEmits<{
           <td class="px-6 py-4">
             <button
               class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:outline-none bg-gradient-to-r to-sky-700/25 from-purple-500/25 shadow-md hover:to-sky-700/50 transition-all"
-              @click="$emit('mealClicked', meal.id)"
+              @click="$emit('clickedMeal', meal.id)"
             >
               <span>Delete</span>
               <Icon name="material-symbols:delete" style="color: white; font-weight: bolder; font-size: 18px" />

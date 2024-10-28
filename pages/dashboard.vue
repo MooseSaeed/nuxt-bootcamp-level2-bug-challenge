@@ -1,11 +1,24 @@
 <script setup>
-const deleteMeal = async (id) => {
-  // Trigger the POST request here
+definePageMeta({
+  layout: "admin-layout",
+});
 
-  await refresh(); // This will refresh the payload after the meal is deleted
+const { data: meals, refresh } = await useFetch("/api/meals");
+
+const deleteMeal = async (id) => {
+  await $fetch("/api/meals/delete", {
+    method: "POST",
+    body: {
+      mealId: id,
+    },
+  });
+
+  await refresh();
 };
 </script>
 
 <template>
-  <div></div>
+  <div v-if="meals">
+    <MealTable :meals @clicked-meal="deleteMeal" />
+  </div>
 </template>

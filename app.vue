@@ -1,10 +1,9 @@
 <script setup>
-const { count } = storeToRefs(useSavedMealsStore());
+const { count } = useSavedMealsStore();
 </script>
 
 <template>
   <NuxtLoadingIndicator />
-
   <NuxtLayout>
     <div class="saved">Saved ({{ count }})</div>
     <ResetButton />

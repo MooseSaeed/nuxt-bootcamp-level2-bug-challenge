@@ -1,76 +1,39 @@
 ---
 difficulty: 1
-tags: codechallenge, Exercise Challenge, Nuxt 3
-openFiles: pages/index.vue,[path to all files that should open in editor by default during exam]
+tags: codechallenge, Bug Fixing Challenge, Exercise Challenge, Nuxt 3
+openFiles: pages/index.vue
 ---
 
-# Tasty Meals
+# Tasty Meals Bug
 
 # Challenge Description
 
-This challenge focuses on building a robust food recipes Nuxt app with dynamic routing, layout management, and error handling. You'll ensure smooth navigation, proper layout rendering, and state management while incorporating some SEO and user experience features.
+In this challenge, we've prepared a basic food recipes application, but it has a few bugs that need to be fixed.
+
+First of all, on the `/pages/[meal].vue` page, the title isn’t updating to match the meal’s title. Instead, it consistently displays the default site title.
+
+Secondly, users can save meals by clicking the `+` icon on the cards displayed on the `/pages/index.vue` page. However, the saved meal count shown in the div with the class `'saved'` within `app.vue` isn’t accurate.
+
+Lastly, while navigating between pages, a blur transition effect is applied. However, when navigating from and to the `/dashboard` page, the 'blur' transition isn’t applied.
 
 ## Requirements
 
-1. Create a `/meals` route to render all meals:
+1. Ensure the `<title>` tag updates dynamically to reflect the specific meal title on the `/meals/:id` route.
 
-   - Get the meals data from the `/api/meals` endpoint.
-   - In the template, use the `<MealList />` component and pass the meals to the `meals` prop.
+2. Investigate and fix the issue causing the saved meals count to display inaccurately in the saved div in `app.vue`.
 
-2. Create a `/meals/:id` route to render an indvidual meal:
+3. Make sure the blur transition is applied consistently across all page routes, including the `/dashboard` page.
 
-   - Get the slug from the route.
-   - Get the meal data from the `/api/meals` endpoint.
-   - The endpoint expects a slug query string with the value of the slug. Pass the slug to get the meal data.
-   - Create and throw a Nuxt error with the error status code and message.
-
-3. Create an error page:
-
-   - Use the `<ErrorPage />` component in the template and pass to it the error prop.
-   - The `<ErrorPage />` component is emitting the `button-clicked` event. Clear the error and navigate the user to the homepage when this event is triggered.
-   - The error page should use the default layout.
-
-4. Prevent navigation to the `/forbidden` route:
-
-   - Create a middleware that navigates the user to the homepage if they tried to visit `/forbidden`.
-
-![screenshot](https://github.com/user-attachments/assets/86561305-8f9f-4934-9d31-bd87710dc438)
-
-5. Activate the `admin-layout` only for the `/dashboard` page.
-
-6. Enable users to delete meals from the `/dashboard` page:
-
-   - Fetch all meals from the `/api/meals` endpoint.
-   - Use the `<MealTable />` component in the template and pass the meals to the `meals` prop.
-   - The `<MealTable />` component emits a `meal-clicked` event when the delete button is clicked on a meal. This event carries the meal's `id` as its payload. Create a `deleteMeal` function that sends a `POST` request to the `/api/meals/delete` endpoint with the `{mealId: id}` in the request body.
-
-7. Set the following default `<title>` and `<meta name="description" content="" >` for the whole site:
-
-   - Title: `"Tasty Meals"`
-   - Description: `"A collection of the best food in the world"`
-
-8. The page `<title>` for the `/meals/:id` route should update to display the specific meal's title.
-
-9. Use the `savedMeals` Pinia store to set a global state for the saved meals count:
-
-   - The div with the class `saved` in `app.vue` should accuretly render the count of meals saved.
-   - The `<MealList />` component in the `/meals` page is emitting a `save-meal` event with the meal's `id` as its payload. Use that event to update the global state.
-
-10. Apply page and layout transitions:
-    - Define a page transition named `blur` and it should have the mode `out-in`.
-    - Define a layout transition named `blur` and it should have the mode `out-in`.
-
-> 💡 HINT: The blur effect styles are already in place.
+> 💡 HINT: The 'blur' effect CSS styles are already in place.
 
 ![Screenshot 2](https://github.com/user-attachments/assets/55fec298-b633-4cfe-bf2a-1ff8d2a8fc6b)
 
 ## Other Considerations
 
 - If you see the `data-test` attribute in the boilerplate don't remove it. If you remove it, your code may be invalid for the certificate.
-  
 - Do not delete or modify the `/server/plugins/doNotChange.ts` file.
 
-- TailwindCSS is preinstalled and with default config. It might be helpful for you if you want to have some styles. Or if you'd like to see a pretty result as you develop. You can use the following semantic classes that have been included: `TODO-class-1`, `TODO-class-2`
+- TailwindCSS is preinstalled and with default config. It might be helpful for you if you want to have some styles. Or if you'd like to see a pretty result as you develop.
 
 - It is NOT necessary to have the exact same styles as in the GIF above, or even any styles at all.
 
