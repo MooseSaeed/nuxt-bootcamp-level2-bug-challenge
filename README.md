@@ -1,7 +1,7 @@
 ---
 difficulty: 1
 tags: codechallenge, Bug Fixing Challenge, Exercise Challenge, Nuxt 3
-openFiles: pages/index.vue
+openFiles: app.vue, pages/meals/[id].vue, pages/dashboard.vue
 ---
 
 # Tasty Meals Bug
@@ -26,7 +26,7 @@ Lastly, while navigating between pages, a blur transition effect is applied. How
 
 > 💡 HINT: The 'blur' effect CSS styles are already in place.
 
-![Screenshot 2](https://github.com/user-attachments/assets/55fec298-b633-4cfe-bf2a-1ff8d2a8fc6b)
+![bug-compressed](https://github.com/user-attachments/assets/c176af3c-5934-431e-9c92-49f2619576b2)
 
 ## Other Considerations
 
